@@ -4,13 +4,13 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
+import MainLayout from "./components/main/MainLayout";
 import MainPage from "./components/main/MainPage";
-import MainLayout from "./layouts/MainLayout";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainLayout />}>
-      <Route path="" element={<MainPage />}></Route>
+      <Route path="" element={<MainPage />} />
     </Route>,
   ),
 );
