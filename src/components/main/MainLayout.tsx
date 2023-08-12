@@ -33,7 +33,12 @@ function NavigationButton(props: {
 export default function MainLayout(props: { children?: ReactNode }) {
   const location = useLocation();
 
-  const navigations = {
+  const navigations: {
+    [k: string]: {
+      title: string;
+      icon: ReactNode;
+    };
+  } = {
     "/": {
       title: "Home",
       icon: <CgHomeAlt />,
@@ -52,11 +57,9 @@ export default function MainLayout(props: { children?: ReactNode }) {
     },
   };
 
-  type Pathname = keyof typeof navigations;
+  const pathname = location.pathname;
 
-  const pathname = location.pathname as Pathname;
-
-  const title = navigations[pathname].title;
+  const title = navigations[pathname]?.title ?? "";
 
   return (
     <div className="flex h-screen min-h-screen w-full min-w-full flex-row bg-bubbles font-sans">
@@ -68,7 +71,7 @@ export default function MainLayout(props: { children?: ReactNode }) {
           </div>
           <div className="flex flex-row gap-3 text-2xl font-bold text-white">{`Menu`}</div>
           {Object.keys(navigations).map((key) => {
-            const navigation = navigations[key as Pathname];
+            const navigation = navigations[key];
             const value = navigation.title;
             const icon = navigation.icon;
 
