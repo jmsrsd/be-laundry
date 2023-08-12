@@ -20,7 +20,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.15.0",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.32.5",
