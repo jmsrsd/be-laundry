@@ -33,7 +33,6 @@ export default function ErrorPage() {
             }}
           >
             <CgHomeAlt />
-
             <div>{`HOME`}</div>
           </Button>
         </div>
