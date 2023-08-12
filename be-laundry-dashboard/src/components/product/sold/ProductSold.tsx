@@ -1,49 +1,18 @@
 import { Bar } from "react-chartjs-2";
 
-export type ProductStatsDatum = {
-  key: string,
-  value: number,
-}
+import { useProductSoldQuery } from "./useProductSold";
 
-export default function ProductStats() {
-  const data: ProductStatsDatum[] = [
-    {
-      key: '11/05',
-      value: 3,
-    },
-    {
-      key: '12/05',
-      value: 4,
-    },
-    {
-      key: '13/05',
-      value: 2,
-    },
-    {
-      key: '14/05',
-      value: 5,
-    },
-    {
-      key: '15/05',
-      value: 8,
-    },
-    {
-      key: '16/05',
-      value: 8,
-    },
-    {
-      key: '17/05',
-      value: 7,
-    },
-    {
-      key: '18/05',
-      value: 9,
-    },
-  ]
+export default function ProductStats(props: {
+  className?: string,
+}) {
+  const className = props.className ?? ""
+
+  const query = useProductSoldQuery();
+  const data = query.data ?? [];
 
   return (
     <Bar
-      className="relative w-full"
+      className={`${className} relative w-full`}
       options={{
         maintainAspectRatio: false,
         plugins: {
@@ -52,20 +21,22 @@ export default function ProductStats() {
             mode: "point",
             bodyAlign: "center",
             yAlign: "bottom",
-            backgroundColor: "transparent",
+            backgroundColor: "white",
             bodyFont: {
               weight: "bold",
             },
             callbacks: {
-              title: () => { return [] },
+              title: () => {
+                return [];
+              },
               labelTextColor: () => {
-                return "#B2C5D4"
+                return "#B2C5D4";
               },
               label: (ctx) => {
-                const value = +ctx.formattedValue
-                const unit = value > 1 ? 'items' : 'item'
-                return `${value} ${unit}`
-              }
+                const value = +ctx.formattedValue;
+                const unit = value > 1 ? "items" : "item";
+                return `${value} ${unit}`;
+              },
             },
           },
           legend: {
@@ -74,7 +45,7 @@ export default function ProductStats() {
         },
         layout: {
           padding: {
-            top: 24,
+            top: 32,
           },
         },
         scales: {
@@ -96,7 +67,7 @@ export default function ProductStats() {
           },
           y: {
             beginAtZero: true,
-            offset: true,
+            offset: false,
             display: false,
             grid: {
               display: false,
@@ -108,7 +79,6 @@ export default function ProductStats() {
         labels: data.map((e) => e.key),
         datasets: [
           {
-
             data: data.map((e) => e.value),
             hoverBackgroundColor: "#3E7DAB",
             backgroundColor: "#B2C5D4",

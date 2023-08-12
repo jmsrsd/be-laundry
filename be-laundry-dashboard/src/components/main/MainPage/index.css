@@ -1,0 +1,7 @@
+label.flex {
+  z-index: -50;
+}
+
+div.flex div.relative {
+  min-width: calc(32 * 4px);
+}
