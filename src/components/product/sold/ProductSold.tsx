@@ -2,10 +2,12 @@ import { Bar } from "react-chartjs-2";
 
 import { useProductSoldQuery } from "./useProductSold";
 
-export default function ProductStats(props: {
-  className?: string,
-}) {
-  const className = props.className ?? ""
+export type ProductSoldProps = {
+  className?: string;
+};
+
+export default function ProductSold(props: ProductSoldProps) {
+  const className = props.className ?? "";
 
   const query = useProductSoldQuery();
   const data = query.data ?? [];
