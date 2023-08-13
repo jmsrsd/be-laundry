@@ -11,12 +11,12 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh", "@tanstack/query"],
   rules: {
-    "react/react-in-jsx-scope": "off",
     "@tanstack/query/exhaustive-deps": "warn",
     "@tanstack/query/prefer-query-object-syntax": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-var-requires": "warn",
     "no-undef": "warn",
+    "react/react-in-jsx-scope": "off",
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
