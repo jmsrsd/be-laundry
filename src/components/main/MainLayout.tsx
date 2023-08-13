@@ -64,7 +64,7 @@ export default function MainLayout(props: { children?: ReactNode }) {
   return (
     <div className="flex h-screen min-h-screen w-full min-w-full flex-row bg-bubbles font-sans">
       <div className="flex h-full w-full flex-row">
-        <div className="flex h-full w-80 flex-none flex-col gap-3 bg-[#3B97CB] p-6">
+        <div className="hidden h-full w-80 flex-none flex-col gap-3 bg-[#3B97CB] p-6 lg:flex">
           <div className="flex h-20 w-full flex-row items-center justify-center gap-3">
             <img src={Logo} />
             <div className="text-3xl font-bold text-white">{`BeLaundry`}</div>

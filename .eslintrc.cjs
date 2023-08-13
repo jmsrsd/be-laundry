@@ -4,12 +4,14 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
     "plugin:react-hooks/recommended",
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh", "@tanstack/query"],
   rules: {
+    "react/react-in-jsx-scope": "off",
     "@tanstack/query/exhaustive-deps": "warn",
     "@tanstack/query/prefer-query-object-syntax": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
