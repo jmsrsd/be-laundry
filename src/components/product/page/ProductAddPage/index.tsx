@@ -2,7 +2,7 @@ import { Button } from "@material-tailwind/react";
 import { useState } from "react";
 import { MdOutlineImage } from "react-icons/md";
 
-import { useProductAddPageStore } from "./useProductAddPage";
+import { useProductAddPageStore } from "./hooks";
 
 export default function ProductAddPage() {
   const store = useProductAddPageStore();

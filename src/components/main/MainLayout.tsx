@@ -10,21 +10,21 @@ import Logo from "../../assets/logo.svg";
 
 function NavigationButton(props: {
   href?: string;
+  active?: boolean;
   className?: string;
   children?: ReactNode;
-  active?: boolean;
 }) {
-  const className = props.className ?? "";
   const active = props.active ?? false;
   const href = props.href ?? "#";
+  const className = [
+    props.className ?? "",
+    active ? "bg-white" : "",
+    active ? "text-[#3B97CB]" : "text-white",
+    "flex flex-row items-center gap-3 rounded-lg p-3 text-2xl font-bold duration-300 hover:bg-white hover:text-[#3B97CB]",
+  ].join(" ");
 
   return (
-    <Link
-      to={href}
-      className={`${className} ${active ? `bg-white` : ``} ${
-        active ? `text-[#3B97CB]` : `text-white`
-      } flex flex-row items-center gap-3 rounded-lg p-3 text-2xl font-bold duration-300 hover:bg-white hover:text-[#3B97CB]`}
-    >
+    <Link to={href} className={className}>
       {props.children}
     </Link>
   );

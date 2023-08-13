@@ -1,9 +1,11 @@
 import { ReactNode } from "react";
 
-export default function Card(props: {
+export type CardProps = {
   className?: string;
   children?: ReactNode;
-}) {
+};
+
+export default function Card(props: CardProps) {
   const className = props.className ?? "";
 
   return (
