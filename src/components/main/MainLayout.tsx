@@ -33,12 +33,7 @@ function NavigationButton(props: {
 export default function MainLayout(props: { children?: ReactNode }) {
   const location = useLocation();
 
-  const navigations: {
-    [k: string]: {
-      title: string;
-      icon: ReactNode;
-    };
-  } = {
+  const navigations = {
     "/": {
       title: "Home",
       icon: <CgHomeAlt />,
@@ -57,21 +52,23 @@ export default function MainLayout(props: { children?: ReactNode }) {
     },
   };
 
-  const pathname = location.pathname;
+  type NavigationRoute = keyof typeof navigations;
 
-  const title = navigations[pathname]?.title ?? "";
+  const navigationRoute = location.pathname;
+
+  const title = navigations[navigationRoute as NavigationRoute]?.title ?? "";
 
   return (
     <div className="flex h-screen min-h-screen w-full min-w-full flex-row bg-bubbles font-sans">
       <div className="flex h-full w-full flex-row">
-        <div className="hidden h-full w-80 flex-none flex-col gap-3 bg-[#3B97CB] p-6 lg:flex">
+        <div className="hidden h-full w-80 flex-none flex-col gap-3 bg-[#3B97CB] p-6 xl:flex">
           <div className="flex h-20 w-full flex-row items-center justify-center gap-3">
             <img src={Logo} />
             <div className="text-3xl font-bold text-white">{`BeLaundry`}</div>
           </div>
           <div className="flex flex-row gap-3 text-2xl font-bold text-white">{`Menu`}</div>
           {Object.keys(navigations).map((key) => {
-            const navigation = navigations[key];
+            const navigation = navigations[key as NavigationRoute];
             const value = navigation.title;
             const icon = navigation.icon;
 

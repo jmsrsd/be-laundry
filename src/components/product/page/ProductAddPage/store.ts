@@ -22,7 +22,7 @@ export const useProductAddPageStore = create<ProductAddPageStore>()(
         stock: "",
         category: "",
         price: "",
-        publish: async function () {
+        publish: function () {
           get().clear();
         },
         clear: function () {
